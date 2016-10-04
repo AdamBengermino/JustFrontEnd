@@ -710,6 +710,7 @@
 				},
         blockSubmit: true
 			},
+
 			max: {
 				name: "max",
 				init: function ($this, name) {
