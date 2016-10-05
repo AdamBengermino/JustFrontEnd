@@ -10,6 +10,11 @@ body {
 .text-muted {
   color: #777777;
 }
+
+#profilepic {
+  vertical-align: middle;
+}
+
 .text-primary {
   color: #FF0000;
 }
