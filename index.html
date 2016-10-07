@@ -95,14 +95,14 @@
 
 .close:hover,
 .close:focus {
-    color: #000;
+    color: red;
     text-decoration: none;
     cursor: pointer;
 }
 
 .closeTwo:hover,
 .closeTwo:focus {
-    color: #000;
+    color: red;
     text-decoration: none;
     cursor: pointer;
 }
@@ -154,7 +154,7 @@
                 <div class="intro-heading">AutoMate</div>
             <span> 
                 <a href="#signUp" class="page-scroll btn btn-xl">Sign Up</a>
-            <a href="#logIn" class="page-scroll btn btn-xl" style="margin-left: 5em">Log In</a>
+                <a href="#logIn" class="page-scroll btn btn-xl" style="margin-left: 5em">Log In</a>
             </span>
             </div>
         </div>
@@ -316,10 +316,8 @@
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline quicklinks">
-                        <li id="privacy"><a href="#logIn">Privacy Policy</a>
-                        </li>
-                        <li id="terms"><a href="#logIn">Terms of Use</a>
-                        </li>
+                        <li id="privacy"><a href="#logIn">Privacy Policy</a></li>
+                        <li id="terms"><a href="#logIn">Terms of Use</a></li>
                     </ul>
                 </div>
             </div>
@@ -331,7 +329,7 @@
 
   <!-- Modal content -->
                 <div class="modal-content">
-                    <span class="close">×</span>
+                    <span class="close">X</span>
                         <h4 style="text-align: center"><strong>Privacy Policy</strong></h4>
                         <p>
                         This Privacy Policy governs the manner in which AutoMate collects, uses, maintains and discloses information collected from users (each, a "User") of the http://www.automate.com website ("Site").
@@ -417,7 +415,7 @@
 
 <div id="mymodalTwo" class="modalTwo">
                 <div class="modal-contentTwo">
-                    <span class="closeTwo">×</span>
+                    <span class="closeTwo">X</span>
                         <p>
                             <h4 style="text-align: center"><strong>Terms of Use ("Terms")</strong></h4>
                                 <br/>
@@ -492,8 +490,7 @@
     // When the user clicks the button, open the modal
     btn.onclick = function() {
         modal.style.display = "block";
-    }
-
+    
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
         modal.style.display = "none";
@@ -504,7 +501,7 @@
         if (event.target == modal) {
         modal.style.display = "none";
         }
-    };
+    }};
 
     var modalTwo = document.getElementById("myModalTwo");
 
@@ -513,19 +510,17 @@
     var spanTwo = document.getElementsByClassName("closeTwo")[0]; 
 
     btnTwo.onclick = function() {
-        modalTwo.style.display = "block";
-    }
+        mymodalTwo.style.display = "block";
 
     spanTwo.onclick = function() {
-        modalTwo.style.display = "none"; 
+        mymodalTwo.style.display = "none"; 
     }
 
     window.onclick = function(event) {
-        if (event.target == modalTwo) {
-            modalTwo.style.display = "none";
-        }
-    };
-    
+        if (event.target == mymodalTwo) {
+            mymodalTwo.style.display = "none";
+          }
+        }};
     </script>
 
     <script type="text/javascript">
