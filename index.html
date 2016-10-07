@@ -162,64 +162,69 @@
             </div>
         </div>
     </section>
-
-     <section id="signUp" class="bg-light-gray">
+<section id="signUp" class="bg-light-gray">
         <div class="container">
             <div class="row">
                 <div class="col-lg-14 text-center">
                     <h2 class="section-heading">Sign Up</h2>
-                    <form name="sentMessage" id="contactForm" novalidate style="margin-left: 28em">
+                    <form name="signUpForm" id="signUpForm" action="/signUp" method="post" novalidate style="margin-left: 28em">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="First Name *" id="firstName" required data-validation-required-message="Please enter your name.">
+                                    <input type="text" class="form-control" placeholder="First Name *" name="firstName" id="firstName" required data-validation-required-message="Please enter your name.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Last Name *" id="lastName" required data-validation-required-message="Please enter your name.">
+                                    <input type="text" class="form-control" placeholder="Last Name *" name="lastName" id="lastName" required data-validation-required-message="Please enter your name.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Street Address *" id="streetAddress" required data-validation-required-message="Please enter your name.">
+                                    <input type="text" class="form-control" placeholder="Your Gender *" name="gender" id="gender" required data-validation-required-message="Please enter your gender.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="City *" id="city" required data-validation-required-message="Please enter your name.">
+                                    <input type="text" class="form-control" placeholder="Home Address *" name="homeAddress" id="homeAddress" required data-validation-required-message="Please enter your street name and number, city, and state.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="State *" id="state" required data-validation-required-message="Please enter your state.">
+                                    <input type="email" class="form-control" placeholder="Your Email *" name="email" id="email" required data-validation-required-message="Please enter your email address.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Zip Code *" id="zipCode" required data-validation-required-message="Please enter your name.">
+                                    <input type="phone" class="form-control" placeholder="Your Cell #*" name="cellPhone" id="cellPhone" required data-validation-required-message="Please enter your cell phone number.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
+                                    <input type="text" class="form-control" placeholder="Username *" name="userName" id="newUserName" required data-validation-required-message="Please create a username.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Password *" id="password" required data-validation-required-message="Please enter your name.">
+                                    <input type="password" class="form-control" placeholder="Password *" name="password" id="newPassword" required data-validation-required-message="Please create a password.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Confirm Password *" id="confirmassword" required data-validation-required-message="Please enter your name.">
+                                    <input type="password" class="form-control" placeholder="Confirm Password *" name="confirmedPassword" id="confirmPassword" required data-validation-required-message="Please retype your password.">
                                     <p class="help-block text-danger"></p>
+                                </div>
+                                <!-- Hidden form fields to hold latitude/longitude data -->
+                                <div class="form-group">
+                                    <input type="hidden" value="" id="homeLat">
+                                </div>
+                                <div class="form-group">
+                                    <input type="hidden" value="" id="homeLng">
                                 </div>
                             <div class="clearfix"></div>
                             <div class="col-lg-12 text-center">
                                 <div id="success"></div>
-
-                                <button id="buttonOne" type="submit" class="btn btn-xl">Submit</button>
-
+                                <button id="submitSignUp" type="button" class="btn btn-xl">Submit</button>
                             </div>
                         </div>
                     </form>
                 </div>
-            
+            </div>
+        </div>
     </section>
-
+    
     <!-- logIn Section -->
     <section id="logIn">
         <div class="container">
@@ -372,9 +377,9 @@
 
 </div><!--endModalContent-->
 
-<div id="modalTwo" class="modal">
-                <div class="modal-content">
-                    <span class="close">×</span>
+<div id="mymodalTwo" class="modalTwo">
+                <div class="modal-contentTwo">
+                    <span class="closeTwo">×</span>
                         <p>
                             <h4 style="text-align: center"><strong>Terms of Use ("Terms")</strong></h4>
                                 <br/>
@@ -442,8 +447,6 @@
     // Get the button that opens the modal
     var btn = document.getElementById("privacy");
 
-    var btnTwo = document.getElementById("terms"); 
-
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
 
@@ -452,10 +455,6 @@
         modal.style.display = "block";
     }
 
-    btnTwo.onclick = function() {
-        modal.style.display = "block";
-    }
-    
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
         modal.style.display = "none";
@@ -467,6 +466,27 @@
         modal.style.display = "none";
         }
     }
+
+    var modalTwo = document.getElementById("myModalTwo")
+
+    var btnTwo = document.getElementById("terms"); 
+
+    var spanTwo = document.getElementById("closeTwo")[0]; 
+
+    btnTwo.onclick = function() {
+        modalTwo.style.display = "block";
+    }
+
+    spanTwo.onclick = function() {
+        modalTwo.style.display = "none"; 
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modalTwo)
+    }
+    
+
+
 
     </script><!--endModalScript-->
 
